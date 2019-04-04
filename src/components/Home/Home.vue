@@ -9,9 +9,6 @@
       </el-header>
       <el-main class="el-main">
         <Breadcrumb></Breadcrumb>
-        <el-col :span="24" v-if="this.$route.fullPath == '/index' || this.$route.fullPath == '/home'">
-          主页
-        </el-col>
         <keep-alive :max="10">
           <router-view></router-view>
         </keep-alive>

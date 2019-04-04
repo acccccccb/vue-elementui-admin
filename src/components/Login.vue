@@ -4,7 +4,7 @@
       <div class="loginTitle">
         <img src="../../static/images/logo2.png" alt="">
       </div>
-      <div class="text">教学平台</div>
+      <div class="text">教学工作台</div>
     </div>
     <div class="main">
       <div class="bg"></div>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="loginInput">
-          <span>教学平台登录</span>
+          <span>教学工作台登录</span>
           <el-form :model="login" :rules="loginRules" ref="ruleForm" style="margin-top: 25px;">
             <el-form-item prop="username">
               <el-input v-model="login.username" type="text" placeholder="请输入用户名"></el-input>

@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 // 主页
 import Home from '@/components/Home/Home'
+import Index from '@/components/Home/Index/Index'
 // 教师工作台
 import WorkBenchGroup from '@/components/Home/WorkBench/WorkBenchGroup'
 import WorkBenchGroupList from '@/components/Home/WorkBench/WorkBenchGroupList'
@@ -18,18 +19,20 @@ export default new Router({
   // mode: 'history',
   routes: [
     {
-      path: '/home',
-      name: '首页',
+      path: '/',
+      name: '教师教学端',
       component: Home,
       children:[
         {
-          path: 'login',
-          name: '登录',
-          component: Login
+          name:'首页',
+          icon:'mkfont mk-resume_icon_home_1',
+          path:'index',
+          component:Index,
         },
         {
           path: 'workBench',
           name: '教学端',
+          icon: 'mkfont mk-tab_icon_workbench_n2',
           component: WorkBenchGroup,
           children:[
             {
@@ -49,24 +52,15 @@ export default new Router({
         {
           path: 'prepareLessons',
           name: '备课',
+          icon: 'mkfont mk-resume_icon_train1',
           component: PrepareLessons
         }
       ]
     },
     {
-      path: '/index',
-      name: '首页 ',
-      component: Home
-    },
-    {
-      path: '/',
+      path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
+    }
   ]
 })

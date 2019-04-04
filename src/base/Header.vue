@@ -2,8 +2,8 @@
   <div class="tabs-main">
     <div class="tabs-group">
       <div v-for="(item, index) in this.$store.state.tabs" class="tabs-item">
-        <div v-if="index>0" class="close-tab" @click="closeTab(index,item.url)"><i class="el-icon-error"></i></div>
-        <router-link :to="{path: item.url}" :active-class="'tabs-item-active'" class="tabs-item" slot="title" v-if="!item.is">
+        <div v-if="index>0" class="close-tab" @click="closeTab(index,item.path)"><i class="el-icon-error"></i></div>
+        <router-link :to="{path: basePath+item.path}" :active-class="'tabs-item-active'" class="tabs-item" slot="title" v-if="!item.is">
           <div class="tabs-icon">
             <i :class="item.icon"></i>
           </div>
@@ -14,7 +14,7 @@
     <div class="userinfo">
       <div class="headImg">
         <img v-if="headImg && headImg.length > 10" :src="headImg" alt="nickname">
-        <div class="headImgNone" v-if="!headImg || headImg.length == ''">{{nickname[0]}}{{nickname[1]}}</div>
+        <div class="headImgNone" v-if="!headImg || headImg.length == ''">{{nickname[nickname.length-2]}}{{nickname[nickname.length-1]}}</div>
       </div>
       <div class="info">
         <div>{{nickname}}</div>
@@ -29,17 +29,18 @@
     data() {
       return {
         nickname:' ',
-        headImg:'http://placekitten.com/g/100/100'
+        headImg:'http://placekitten.com/g/100/100',
+        basePath:this.$store.state.basePath,
       }
     },
     created(){
-      this.$router.push(this.$store.state.tabs[0].url);
-      this.nickname = this.getCookies('nickname');
-      this.headImg = this.getCookies('headImg');
+      this.$router.push(this.$store.state.tabs[0].path);
+      this.nickname = this.getCookies('nickname') || '未登录';
+      this.headImg = this.getCookies('headImg') || '';
     },
     updated(){
-      this.nickname = this.getCookies('nickname');
-      this.headImg = this.getCookies('headImg');
+      this.nickname = this.getCookies('nickname') || '未登录';
+      this.headImg = this.getCookies('headImg') || '';
     },
     methods: {
       //=> 获取cookies
@@ -55,12 +56,12 @@
       // 选择标签
       chooseTab:function(index){
         this.$store.commit('chooseTab',index);
-        this.$router.push(this.$store.state.tabs[index].url)
+        this.$router.push(this.$store.state.tabs[index].path)
       },
       // 关闭标签
-      closeTab:function(index,url) {
-        this.$router.push(this.$store.state.tabs[index-1].url);
-        this.$store.commit('closeTab',url);
+      closeTab:function(index,path) {
+        this.$router.push(this.$store.state.tabs[index-1].path);
+        this.$store.commit('closeTab',path);
       }
     }
   }

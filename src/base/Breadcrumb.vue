@@ -1,5 +1,5 @@
 <template>
-  <div class="breadcrumb-main" v-if="this.$route.path != '/home'">
+  <div class="breadcrumb-main" v-if="this.$route.path != '/index'">
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item v-for="item in breadcrumb" :key="item.name">{{item.name}}</el-breadcrumb-item>
     </el-breadcrumb>

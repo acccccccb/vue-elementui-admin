@@ -9,7 +9,7 @@
       </div>
       <div class="left-menu-top-text">
         <div>MINAKEVIN</div>
-        <div>Management System</div>
+        <div>Teaching System</div>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -22,8 +22,9 @@
         :router="true"
         :collapse-transition="true"
         @select="chooseTab"
+        v-if="menu.length>0"
         class="left-menu">
-        <el-menu-item v-for="(item, index) in menu" :index="item.url" :index.path="item.url" :route="$router.path" :key="index">
+        <el-menu-item class="left-menu-item" v-for="(item, index) in menu" :index="basePath+item.path" :index.path="basePath+item.path" :route="$router.path" :key="index">
           <i :class="item.icon"></i>
           <span slot="title">{{item.name}}</span>
         </el-menu-item>
@@ -42,24 +43,15 @@
     name:'LeftMenu',
     data(){
       return {
+        basePath:this.$store.state.basePath,
         collapse:false,
-        menu:[
-          {
-            name: '教学端',
-            url: '/home/workBench',
-            icon: 'mkfont mk-tab_icon_workbench_n2'
-          },
-          {
-            name: '教学备课',
-            url: '/home/prepareLessons',
-            icon: 'mkfont mk-resume_icon_train1'
-          },
-        ],
+        menu:[],
       }
     },
-    mounted(){
+    created(){
 //      this.setCollapse(false);
       this.getCollapse();
+      this.menu = this.$router.options.routes[0].children;
     },
     methods: {
       getCollapse:function(){
@@ -69,14 +61,15 @@
         window.localStorage.collapse = collapse;
         this.getCollapse();
       },
-      chooseTab:function(url){
+      chooseTab:function(path){
+        let _this = this;
           let menuList = this.menu;
           for(var index=0;index<menuList.length;index++) {
-            if(menuList[index].url == url) {
-              let url = menuList[index].url;
+            if(_this.basePath+menuList[index].path == path) {
+              let path = menuList[index].path;
               let tabs = this.$store.state.tabs;
               let choosedTabs = tabs.filter((res)=>{
-                if(res.url == url) {
+                if(res.path == path) {
                   return res;
                 }
               });
@@ -84,7 +77,7 @@
                 let tabData = {
                   name:menuList[index].name,
                   icon:menuList[index].icon,
-                  url:menuList[index].url,
+                  path:menuList[index].path,
                 };
                 this.$store.commit('addTab',tabData);
               }
@@ -123,6 +116,7 @@
     padding-top:14px;
     padding-bottom:10px;
     padding-right:20px;
+    background:#F3FBFF;
     /*border-right:1px solid #dedede;*/
     /*border-bottom:1px solid #dedede;*/
     height:80px;
@@ -146,6 +140,9 @@
     padding-right:10px;
     padding-left:10px;
     padding-top:5px;
+  }
+  .left-menu-item:nth-child(1) {
+    display:none!important;
   }
   .router-link {
     display:block;
