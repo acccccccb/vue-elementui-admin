@@ -20,7 +20,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '教师教学端',
+      name: 'PHPCRM',
       component: Home,
       children:[
         {
@@ -31,7 +31,7 @@ export default new Router({
         },
         {
           path: 'workBench',
-          name: '教学端',
+          name: '页面1',
           icon: 'mkfont mk-tab_icon_workbench_n2',
           component: WorkBenchGroup,
           children:[
@@ -51,7 +51,7 @@ export default new Router({
         },
         {
           path: 'prepareLessons',
-          name: '备课',
+          name: '页面2',
           icon: 'mkfont mk-resume_icon_train1',
           component: PrepareLessons
         }

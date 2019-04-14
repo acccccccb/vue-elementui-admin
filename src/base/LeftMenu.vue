@@ -8,8 +8,8 @@
         <img src="/static/images/logo.png">
       </div>
       <div class="left-menu-top-text">
-        <div>MINAKEVIN</div>
-        <div>Teaching System</div>
+        <div>PHPCRM</div>
+        <div class="left-menu-small-title">PHPCRM</div>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -130,10 +130,12 @@
   }
   .left-menu-top-logo {
     float:left;
-    margin-left:10px;
+    margin-left:20px;
+    margin-top:5px;
   }
   .left-menu-top-logo img {
-    width:70px;
+    /*width:40px;*/
+    height:35px;
   }
   .left-menu-top-text {
     float:left;
@@ -167,5 +169,9 @@
   }
   .el-menu-item i {
     margin-right:5px;
+  }
+  .left-menu-small-title {
+    font-size:0.8em;
+    color:#999;
   }
 </style>
