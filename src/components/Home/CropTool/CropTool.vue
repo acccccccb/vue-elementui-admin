@@ -63,9 +63,9 @@
     name:'CropTool',
     data(){
       return {
-        visible:true,
-        boxWidth:600,
-        boxHeight:300,
+        visible:false,
+        boxWidth:700,
+        boxHeight:350,
         rate:'',
         // rate:'16:9',
         drawImg:{
@@ -234,6 +234,7 @@
           ctx.clearRect(x,y,width,width/p);
           $toolBoxControl.style.width = width+'px';
           $toolBoxControl.style.height = width/p+'px';
+          this.toolBox.height = width;
         } else {
           ctx.clearRect(x,y,width,height);
           $toolBoxControl.style.width = width+'px';
@@ -332,8 +333,12 @@
                 newCanv.height = _this.toolBox.height;
                 let ctx = newCanv.getContext("2d");
                 let params = _this.toolBox;
-                ctx.drawImage(tempImg,params.x,params.y,params.width,params.height,0,0,params.width,params.height);
-
+                if(this.rate) {
+                  let p = this.rate.split(':')[0] / this.rate.split(':')[1];
+                  ctx.drawImage(tempImg,params.x,params.y,params.width,params.width*p,0,0,params.width,params.width*p);
+                } else {
+                  ctx.drawImage(tempImg,params.x,params.y,params.width,params.height,0,0,params.width,params.height);
+                }
                 _this.$refs['previewBox'].innerHTML = "";
                 _this.$refs['previewBox'].appendChild(newCanv);
                 _this.handleClose();
