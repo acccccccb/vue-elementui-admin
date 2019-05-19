@@ -14,12 +14,10 @@ let getCookie = function (name) {
 export default new Vuex.Store({
   state: {
     // baseURL:'http://192.168.1.78:8383',
-    JSESSIONID: getCookie('JSESSIONID'),
-    // token: 'B07FB2E5579F9C1707E07E1E1BDDE211',
     tabs:[
       {
         name:'首页',
-        icon:'mkfont mk-resume_icon_home_1',
+        icon:'fa fa-home',
         path:'index'
       }
     ],

@@ -146,6 +146,7 @@
   }
   .tabs-icon {
     padding-top:14px;
+    font-size:2em;
   }
   .tabs-item .mkfont {
     font-size:2.2em;

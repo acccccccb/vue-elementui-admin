@@ -38,14 +38,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    // index: path.resolve(__dirname, 'D:\\phpStudy\\PHPTutorial\\WWW\\teacher\\index.html'),
-    index: path.resolve(__dirname, 'Z:\\index.ftl'),
+    index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
-    // assetsRoot: path.resolve(__dirname, 'D:\\phpStudy\\PHPTutorial\\WWW\\teacher\\'),
-    assetsRoot: path.resolve(__dirname, 'Z:\\'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

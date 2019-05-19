@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// 登录
-import Login from '@/components/Login'
 // 主页
 import Home from '@/components/Home/Home'
 import Index from '@/components/Home/Index/Index'
@@ -17,27 +15,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'PHPCRM',
+      name: 'Home',
       component: Home,
       children:[
         {
           name:'首页',
-          icon:'mkfont mk-resume_icon_home_1',
+          icon:'fa fa-home',
           path:'index',
           component:Index,
         },
         {
-          name:'CropTool',
-          icon:'mkfont mk-resume_icon_home_1',
+          name:'图片裁剪',
+          icon:'fa fa-image',
           path:'croptool',
           component:CropTool,
         },
       ]
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    }
   ]
 })

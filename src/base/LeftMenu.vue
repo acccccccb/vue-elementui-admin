@@ -1,15 +1,15 @@
 <template>
   <div class="left-menu-main">
     <div class="left-menu-top-main-collapse">
-      <img src="/static/images/logo.png" v-if="collapse==true">
+      <img src="../../static/images/logo.png" v-if="collapse==true">
     </div>
     <div class="left-menu-top-main" v-if="collapse==false">
       <div class="left-menu-top-logo">
-        <img src="/static/images/logo.png">
+        <img src="../../static/images/logo.png">
       </div>
       <div class="left-menu-top-text">
-        <div>PHPCRM</div>
-        <div class="left-menu-small-title">PHPCRM</div>
+        <div>工作台</div>
+        <div class="left-menu-small-title">Workbench</div>
       </div>
       <div class="clearfix"></div>
     </div>

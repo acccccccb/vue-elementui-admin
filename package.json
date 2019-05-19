@@ -1,8 +1,8 @@
 {
-  "name": "vue-teachers-teaching",
+  "name": "vue-element-workbench",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "yuboyang <smileyby@126.com>",
+  "description": "vue-element-workbench",
+  "author": "tabZhang@foxmail.com",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
