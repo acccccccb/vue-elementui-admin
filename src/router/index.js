@@ -6,12 +6,9 @@ import Login from '@/components/Login'
 // 主页
 import Home from '@/components/Home/Home'
 import Index from '@/components/Home/Index/Index'
-// 教师工作台
-import WorkBenchGroup from '@/components/Home/WorkBench/WorkBenchGroup'
-import WorkBenchGroupList from '@/components/Home/WorkBench/WorkBenchGroupList'
-import ViewCourseware from '@/components/Home/WorkBench/ViewCourseware'
-// 备课
-import PrepareLessons from '@/components/Home/PrepareLessons/PrepareLessons'
+// crop toll
+import CropTool from '@/components/Home/CropTool/CropTool'
+
 
 Vue.use(Router)
 
@@ -30,31 +27,11 @@ export default new Router({
           component:Index,
         },
         {
-          path: 'workBench',
-          name: '页面1',
-          icon: 'mkfont mk-tab_icon_workbench_n2',
-          component: WorkBenchGroup,
-          children:[
-            {
-              path:'workBenchGroupList',
-              name:'课件组列表',
-              component:WorkBenchGroupList,
-              children:[
-                {
-                  path:'viewCourseware',
-                  name:'课件详情',
-                  component:ViewCourseware,
-                }
-              ]
-            }
-          ]
+          name:'CropTool',
+          icon:'mkfont mk-resume_icon_home_1',
+          path:'croptool',
+          component:CropTool,
         },
-        {
-          path: 'prepareLessons',
-          name: '页面2',
-          icon: 'mkfont mk-resume_icon_train1',
-          component: PrepareLessons
-        }
       ]
     },
     {
