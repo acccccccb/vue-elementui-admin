@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="previewBox"></div>
-    <el-button type="primary" @click="visible=true">选择裁剪</el-button>
+    <el-button type="primary" @click="visible=true" size="mini">Choose Image</el-button>
     <el-dialog
       title="裁剪图片"
       :visible.sync="visible"
