@@ -1,19 +1,19 @@
 <template>
   <div>
-      <CropTool
-              v-bind:label="'选择图片'"
-              v-bind:boxWidth="800"
-              v-bind:boxHeight="400"
-              v-on:cutDown="cudDown"
-      ></CropTool>
+      <ImgCutter
+              :label="'选择图片'"
+              :boxWidth="800"
+              :boxHeight="400"
+              v-on:cutDown="cutDown"
+      ></ImgCutter>
       <img :src="imgSrc" v-if="imgSrc" style="margin-top:20px;">
   </div>
 </template>
 <script>
-    import CropTool from '../../../base/plugin/CropTool'
+    import ImgCutter from '../../../base/plugin/CropTool'
     export default {
         components:{
-            CropTool
+            ImgCutter
         },
         data(){
             return {
@@ -21,9 +21,9 @@
             }
         },
         methods:{
-            cudDown:function(file){
+            cutDown:function(file){
                 console.log(file);
-                this.imgSrc = file.src;
+                this.imgSrc = file.dataURL;
             }
         }
     }
