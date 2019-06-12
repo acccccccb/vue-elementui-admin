@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "echarts": "^4.2.0-rc.2",
     "el-tree-transfer": "^1.9.8",
     "element-ui": "^2.4.11",
@@ -54,6 +54,7 @@
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
+    "vue-img-cutter": "^2.0.15",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",

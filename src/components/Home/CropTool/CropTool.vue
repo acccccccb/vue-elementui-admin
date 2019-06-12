@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-    import CropTool from '../../../base/plugin/CropTool'
+    import CropTool from 'vue-img-cutter'
     export default {
         components:{
             CropTool
@@ -21,9 +21,9 @@
             }
         },
         methods:{
-            cudDown:function(file){
-                console.log(file);
-                this.imgSrc = file.src;
+            cudDown:function(res){
+                console.log(res.file);
+                this.imgSrc = res.dataURL;
             }
         }
     }
